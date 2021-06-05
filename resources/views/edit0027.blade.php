@@ -8,12 +8,12 @@
         <a href="/pelanggan"> Kembali</a>
     <br/>
     <br/>
-@foreach($pelanggan as $p)
+@foreach($pelanggan as $use)
     <form action="/pelanggan/update" method="post">
     {{ csrf_field() }}
-        <input type="hidden" name="id" value="{{ $p->id }}"> <br/>
-    Nama <input type="text" required="required" name="nama" value="{{ $p->nama }}"> <br/>
-    Alamat <textarea required="required" name="alamat">{{ $p->alamat }}</textarea> <br/>
+        <input type="hidden" name="id" value="{{ $use->id }}"> <br/>
+    Nama <input type="text" required="required" name="nama" value="{{ $use->nama }}"> <br/>
+    Alamat <textarea required="required" name="alamat">{{ $use->alamat }}</textarea> <br/>
         <input type="submit" value="Simpan Data">
 </form>
 @endforeach

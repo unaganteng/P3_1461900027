@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>1461900044</title>
-</head>
-<body>
-<h3>Data User</h3>
-<p>CARI : <form action="/pelanggan/cari" method="GET"></p>
-<input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
-<input type="submit" value="CARI">
-</form>
-<br>
-<form action="/pelanggan/ruang" method="GET">
-<input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
-<input type="submit" value="CARI">
-</form>
-
-<a href="/pelanggan/tambah"> + Pelanggan Baru </a>
-<br/>
-<br/>
-<table border="1">
-<tr>
-<th>Id</th>
-<th>Nama</th>
-<th>Alamat</th>
-</tr>
-@foreach($pelanggan as $p)
-<tr>
-<td>{{ $p->id }}</td>
-<td>{{ $p->nama }}</td>
-<td>{{ $p->alamat }}</td>
-<td>
-<a href="/pelanggan/edit/{{ $p->id }}">Edit</a>
-
-<a href="/pelanggan/hapus/{{ $p->id }}">Hapus</a>
-</td>
-</tr>
+    <title>Kegiatan 3</title>
+    </head>
+        <body>
+            <h3>Kegiatan 3 Menampilkan Data User</h3>
+            <p>Kolom Pencarian</p>
+            <form action="/pelanggan/cari" method="GET">
+                <p> Cari Pelanggan  <input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
+                <input type="submit" value="CARI"></p>
+            </form>
+                <br>
+                <form action="/pelanggan/ruang" method="GET">
+                        <p> Cari Id <input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
+                        <input type="submit" value="CARI"></p>
+                    </form>
+                        <a href="/pelanggan/tambah"> + Pelanggan Baru </a>
+                        <p></p>
+                        <table border="1">
+                            <tr>
+                            <th>Id</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Pilihan</th>
+                            </tr>
+@foreach($pelanggan as $use)
+                            <tr>
+                                <td>{{ $use->id }}</td>
+                                <td>{{ $use->nama }}</td>
+                                <td>{{ $use->alamat }}</td>
+                                <td>
+                                    <a href="/pelanggan/edit/{{ $use->id }}">Edit</a>
+                                    <a href="/pelanggan/hapus/{{ $use->id }}">Hapus</a>
+                                </td>
+                                    </tr>
 @endforeach
 </table>
 </body>

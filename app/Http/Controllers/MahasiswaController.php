@@ -28,7 +28,7 @@ class MahasiswaController extends Controller
         'nama' => $request->nama,
         'alamat' => $request->alamat
         ]);
-            return redirect('/pelanggan');
+        return redirect('/pelanggan');
     }
     public function store (Request $request) 
     {
@@ -49,5 +49,14 @@ class MahasiswaController extends Controller
         $pelanggan=DB::table('pelanggan')->where('nama','like',"%".$cari."%")->paginate();
         return view('pelanggan0027',['pelanggan' => $pelanggan]);
 
+    }
+    public function join()
+    {
+        $pasien = DB::table('pelanggan')
+        ->join('barang', 'pelanggan.id', '=', 'barang.id')
+        ->join('transaksi', 'barang.id', '=', 'transaksi.id')
+        ->select('pelanggan.id', 'pelanggan.nama', 'pelanggan.alamat' , 'transaksi.id AS id_barang' , 'transaksi.id_pelanggan')
+        ->get();
+        return view('join0060' , ['pelanggan' => $pelanggan]);
     }
 }
