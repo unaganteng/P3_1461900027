@@ -12,7 +12,7 @@
             </form>
                 <br>
                 <form action="/pelanggan/ruang" method="GET">
-                        <p> Cari Id <input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
+                        <p> Cari Id Pelanggan <input type="text" name="lihat" placeholder="isikan disini" value="{{ old('cari') }}">
                         <input type="submit" value="CARI"></p>
                     </form>
                         <a href="/pelanggan/tambah"> + Pelanggan Baru </a>
